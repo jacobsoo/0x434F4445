@@ -36,50 +36,112 @@ namespace _0x434F4445
         #region “Hex Conversions”
         private void HexToText_Click(object sender, EventArgs e)
         {
-            if (OnlyHexInString(txtInput.Text) != true)
+            string szOutSep = SelectedOutoutFormat();
+            string szInSep = SelectedInputFormat();
+            char[] chInSep = szInSep.ToCharArray();
+
+            // Convert the argument to a char value.
+            try
             {
-                MessageBox.Show("You have entered an invalid number for Hex to Text conversion.");
-            }else{
-                string hex = txtInput.Text;
-                byte[] raw = new byte[hex.Length / 2];
-                for (int i = 0; i < raw.Length; i++)
+                string szBinOutput = "";
+                string[] words = txtInput.Text.Split(chInSep, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in words)
                 {
-                    raw[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+                    if (word == null || word == "")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (OnlyHexInString(word) != true)
+                        {
+                            MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                        }
+                        else
+                        {
+                            byte raw;
+                            raw = Convert.ToByte(word, 16);
+                            szBinOutput += String.Format("{0}{1}", (char)Convert.ToByte(word, 16), szOutSep);
+                            txtOutput.Text = szBinOutput;
+                        }
+                    }
                 }
-                txtOutput.Text = Encoding.UTF7.GetString(raw);
+            }
+            catch (Exception ex)
+            {
+                string szEX = GetExceptionType(ex);
+                MessageBox.Show(szEX);
             }
         }
 
         private void HexToBinary_Click(object sender, EventArgs e)
         {
-            if (OnlyHexInString(txtInput.Text) != true)
+            string szOutSep = SelectedOutoutFormat();
+            string szInSep = SelectedInputFormat();
+            char[] chInSep = szInSep.ToCharArray();
+
+            // Convert the argument to a char value.
+            try
             {
-                MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
-            }
-            else
-            {
-                string hex = txtInput.Text;
                 string szBinOutput = "";
-                byte[] raw = new byte[hex.Length / 2];
-                for (int i = 0; i < raw.Length; i++)
-                {
-                    raw[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
-                    szBinOutput += String.Format("{0:D},", Convert.ToString(raw[i], 2).PadLeft(8, '0'));
+                string[] words = txtInput.Text.Split(chInSep, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in words){
+                    if (word == null || word == ""){
+                        break;
+                    }else{
+                        if (OnlyHexInString(word) != true){
+                            MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                        }else{
+                            byte raw;
+                            raw = Convert.ToByte(word, 16);
+                            szBinOutput += String.Format("{0}{1}", Convert.ToString(raw, 2).PadLeft(8, '0'), szOutSep);
+                            txtOutput.Text = szBinOutput;
+                        }
+                    }
                 }
-                txtOutput.Text = szBinOutput;
+            }catch (Exception ex){
+                string szEX = GetExceptionType(ex);
+                MessageBox.Show(szEX);
             }
         }
 
         private void Hex2Decimal_Click(object sender, EventArgs e)
         {
-            if (OnlyHexInString(txtInput.Text) != true)
+            string szOutSep = SelectedOutoutFormat();
+            string szInSep = SelectedInputFormat();
+            char[] chInSep = szInSep.ToCharArray();
+
+            // Convert the argument to a char value.
+            try
             {
-                MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                string szBinOutput = "";
+                string[] words = txtInput.Text.Split(chInSep, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in words)
+                {
+                    if (word == null || word == "")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (OnlyHexInString(word) != true)
+                        {
+                            MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                        }
+                        else
+                        {
+                            byte raw;
+                            raw = Convert.ToByte(word, 16);
+                            szBinOutput += String.Format("{0:D}{1}", Convert.ToInt32(word, 16), szOutSep);
+                            txtOutput.Text = szBinOutput;
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string szHexInput = txtInput.Text;
-                txtOutput.Text = String.Format("{0:D}", Convert.ToInt32(szHexInput, 16));
+                string szEX = GetExceptionType(ex);
+                MessageBox.Show(szEX);
             }
         }
 
@@ -91,14 +153,41 @@ namespace _0x434F4445
 
         private void Hex2Octal_Click(object sender, EventArgs e)
         {
-            if (OnlyHexInString(txtInput.Text) != true)
+            string szOutSep = SelectedOutoutFormat();
+            string szInSep = SelectedInputFormat();
+            char[] chInSep = szInSep.ToCharArray();
+
+            // Convert the argument to a char value.
+            try
             {
-                MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                string szBinOutput = "";
+                string[] words = txtInput.Text.Split(chInSep, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in words)
+                {
+                    if (word == null || word == "")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (OnlyHexInString(word) != true)
+                        {
+                            MessageBox.Show("You have entered an invalid number for Hex to Binary conversion.");
+                        }
+                        else
+                        {
+                            byte raw;
+                            raw = Convert.ToByte(word, 16);
+                            szBinOutput += String.Format("{0}{1}", Convert.ToString(Convert.ToInt32(word, 16), 8), szOutSep);
+                            txtOutput.Text = szBinOutput;
+                        }
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string szHexInput = txtInput.Text;
-                txtOutput.Text = String.Format("{0}", Convert.ToString(Convert.ToInt32(szHexInput, 16), 8));
+                string szEX = GetExceptionType(ex);
+                MessageBox.Show(szEX);
             }
         }
         #endregion
@@ -901,6 +990,25 @@ namespace _0x434F4445
         {
             UnixEpoch UE = new UnixEpoch();
             UE.ShowDialog();
+        }
+
+        private void mySQL5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string hash = GenerateMySQ5LHash(txtInput.Text);
+            txtOutput.Text = hash;
+        }
+
+        public string GenerateMySQ5LHash(string key)
+        {
+            byte[] keyArray = Encoding.UTF8.GetBytes(key);
+            SHA1Managed enc = new SHA1Managed();
+            byte[] encodedKey = enc.ComputeHash(enc.ComputeHash(keyArray));
+            StringBuilder myBuilder = new StringBuilder(encodedKey.Length);
+
+            foreach (byte b in encodedKey)
+                myBuilder.Append(b.ToString("X2"));
+
+            return "*" + myBuilder.ToString();
         }
     }
 }

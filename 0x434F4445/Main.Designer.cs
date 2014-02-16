@@ -77,6 +77,7 @@
             this.MD5 = new System.Windows.Forms.ToolStripMenuItem();
             this.SHA1 = new System.Windows.Forms.ToolStripMenuItem();
             this.SHA256 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mySQL5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MorseCodeEncode = new System.Windows.Forms.ToolStripMenuItem();
             this.MorseCodeDecode = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,6 +99,7 @@
             this.String2Lowercase = new System.Windows.Forms.ToolStripMenuItem();
             this.ReverseAString = new System.Windows.Forms.ToolStripMenuItem();
             this.ConvertIPAddress = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToUnixEpochToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.about0x434F4445ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtInput = new System.Windows.Forms.TextBox();
@@ -108,7 +110,6 @@
             this.cbOutPutFormat = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbInputSep = new System.Windows.Forms.ComboBox();
-            this.convertToUnixEpochToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,7 +223,7 @@
             this.TextToHex,
             this.TextToOctal});
             this.textToHexToolStripMenuItem.Name = "textToHexToolStripMenuItem";
-            this.textToHexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.textToHexToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.textToHexToolStripMenuItem.Text = "Text to ...";
             // 
             // TextToBinary
@@ -261,7 +262,7 @@
             this.Binary2Octal,
             this.Binary2Text});
             this.binaryToToolStripMenuItem.Name = "binaryToToolStripMenuItem";
-            this.binaryToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.binaryToToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.binaryToToolStripMenuItem.Text = "Binary to ...";
             // 
             // BinaryToDecimal
@@ -300,7 +301,7 @@
             this.DecimalToOctal,
             this.Decimal2Char});
             this.decimalToHexToolStripMenuItem.Name = "decimalToHexToolStripMenuItem";
-            this.decimalToHexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.decimalToHexToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.decimalToHexToolStripMenuItem.Text = "Decimal to ...";
             // 
             // DecimalToBinary
@@ -339,7 +340,7 @@
             this.Hex2Octal,
             this.HexToText});
             this.hexToToolStripMenuItem.Name = "hexToToolStripMenuItem";
-            this.hexToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hexToToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.hexToToolStripMenuItem.Text = "Hex to ...";
             // 
             // HexToBinary
@@ -378,7 +379,7 @@
             this.Oct2Hex,
             this.Oct2Text});
             this.octalToToolStripMenuItem.Name = "octalToToolStripMenuItem";
-            this.octalToToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.octalToToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.octalToToolStripMenuItem.Text = "Octal to ...";
             // 
             // Oct2Bin
@@ -412,7 +413,7 @@
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(140, 6);
             // 
             // dateDecoderToolStripMenuItem
             // 
@@ -443,7 +444,8 @@
             this.CRC32,
             this.MD5,
             this.SHA1,
-            this.SHA256});
+            this.SHA256,
+            this.mySQL5ToolStripMenuItem});
             this.hashingToolStripMenuItem.Name = "hashingToolStripMenuItem";
             this.hashingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.hashingToolStripMenuItem.Text = "Hashing";
@@ -496,6 +498,13 @@
             this.SHA256.Size = new System.Drawing.Size(275, 22);
             this.SHA256.Text = "SHA-256";
             this.SHA256.Click += new System.EventHandler(this.SHA256_Click);
+            // 
+            // mySQL5ToolStripMenuItem
+            // 
+            this.mySQL5ToolStripMenuItem.Name = "mySQL5ToolStripMenuItem";
+            this.mySQL5ToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.mySQL5ToolStripMenuItem.Text = "MySQL5";
+            this.mySQL5ToolStripMenuItem.Click += new System.EventHandler(this.mySQL5ToolStripMenuItem_Click);
             // 
             // encodingToolStripMenuItem
             // 
@@ -660,6 +669,13 @@
             this.ConvertIPAddress.Text = "Convert IP Address";
             this.ConvertIPAddress.Click += new System.EventHandler(this.ConvertIPAddress_Click);
             // 
+            // convertToUnixEpochToolStripMenuItem
+            // 
+            this.convertToUnixEpochToolStripMenuItem.Name = "convertToUnixEpochToolStripMenuItem";
+            this.convertToUnixEpochToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.convertToUnixEpochToolStripMenuItem.Text = "Convert to Unix Epoch";
+            this.convertToUnixEpochToolStripMenuItem.Click += new System.EventHandler(this.convertToUnixEpochToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -756,13 +772,6 @@
             this.cbInputSep.Name = "cbInputSep";
             this.cbInputSep.Size = new System.Drawing.Size(133, 21);
             this.cbInputSep.TabIndex = 8;
-            // 
-            // convertToUnixEpochToolStripMenuItem
-            // 
-            this.convertToUnixEpochToolStripMenuItem.Name = "convertToUnixEpochToolStripMenuItem";
-            this.convertToUnixEpochToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.convertToUnixEpochToolStripMenuItem.Text = "Convert to Unix Epoch";
-            this.convertToUnixEpochToolStripMenuItem.Click += new System.EventHandler(this.convertToUnixEpochToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -872,6 +881,7 @@
         private System.Windows.Forms.ComboBox cbInputSep;
         private System.Windows.Forms.ToolStripMenuItem SHA256;
         private System.Windows.Forms.ToolStripMenuItem convertToUnixEpochToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mySQL5ToolStripMenuItem;
     }
 }
 
